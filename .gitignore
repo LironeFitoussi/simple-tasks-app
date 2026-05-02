@@ -23,3 +23,11 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+*.tfvars
+*.tfvars.json

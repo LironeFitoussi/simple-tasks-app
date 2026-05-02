@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: 'https://test-iitc.site' }));
 app.use(express.json());
 
 interface Todo {

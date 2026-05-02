@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const API = import.meta.env.VITE_API_URL ?? '';
+
 interface Todo {
   id: number;
   text: string;
@@ -10,7 +12,7 @@ export default function App() {
   const [text, setText] = useState('');
 
   useEffect(() => {
-    fetch('/api/todos')
+    fetch(`${API}/api/todos`)
       .then(r => r.json())
       .then((data: Todo[]) => setTodos(data))
       .catch(() => setTodos([]));
@@ -19,7 +21,7 @@ export default function App() {
   async function addTodo(e: React.FormEvent) {
     e.preventDefault();
     if (!text.trim()) return;
-    const res = await fetch('/api/todos', {
+    const res = await fetch(`${API}/api/todos`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text })
@@ -30,7 +32,7 @@ export default function App() {
   }
 
   async function removeTodo(id: number) {
-    await fetch(`/api/todos/${id}`, { method: 'DELETE' });
+    await fetch(`${API}/api/todos/${id}`, { method: 'DELETE' });
     setTodos(todos.filter(t => t.id !== id));
   }
 

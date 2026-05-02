@@ -5,6 +5,7 @@ Simple full-stack todo app, runs directly on your machine. No Docker, no databas
 This is the **starting point**. Compare it to `../app-docker/` to see exactly what Docker adds.
 
 ## Features
+cat /var/log/user-data.log
 
 - Express backend with REST API
 - React + Vite frontend with hot reload

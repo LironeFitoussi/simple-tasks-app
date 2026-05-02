@@ -10,6 +10,9 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 let todos = [];
 let nextId = 1;
+app.get('/health', (_req, res) => {
+    res.json({ status: 'ok' });
+});
 app.get('/api/todos', (_req, res) => {
     res.json(todos);
 });
@@ -28,7 +31,7 @@ app.delete('/api/todos/:id', (req, res) => {
     todos = todos.filter(t => t.id !== id);
     res.status(204).end();
 });
-const PORT = 3000;
+const PORT = 80;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`backend listening on http://0.0.0.0:${PORT}`);
 });

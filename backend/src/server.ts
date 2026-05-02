@@ -38,7 +38,7 @@ app.delete('/api/todos/:id', (req: Request, res: Response) => {
   res.status(204).end();
 });
 
-const PORT = 3000;
+const PORT = 80;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`backend listening on http://0.0.0.0:${PORT}`);
 });
